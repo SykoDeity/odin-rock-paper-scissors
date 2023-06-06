@@ -31,9 +31,8 @@ function scoreCounter(playerScore, computerScore) {
     userScore++;
   } else if (computerScore == "computerWin" && playerScore == "playerLose") {
     pcScore++;
-  } else if (playerScore == "reset" && computerScore == "reset") {
+  } else if (playerScore == "result" && computerScore == "result") {
     showScore(userScore, pcScore);
-    (userScore = 0), (pcScore = 0);
   }
 }
 
@@ -71,10 +70,10 @@ function game() {
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
   }
-  scoreCounter("reset", "reset");
+  scoreCounter("result", "result");
 }
 
+//Initialize the score before every game!
 let userScore = 0,
   pcScore = 0;
-
 game();
