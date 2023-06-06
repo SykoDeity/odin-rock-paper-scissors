@@ -15,14 +15,15 @@ function getComputerChoice() {
 
 //Display the final score of the game and announce a winner.
 function showScore(pScore, cScore) {
-  if (pScore > cScore) console.log(`Player Wins! ${pScore}-${cScore}`);
-  else console.log(`Computer Wins! ${cScore}-${pScore}`);
+  if (pScore > cScore) {
+    console.log(`Player Wins! ${pScore}-${cScore}`);
+  } else if (pScore < cScore) {
+    console.log(`Computer Wins! ${cScore}-${pScore}`);
+  } else console.log(`It's a draw! ${pScore}-${cScore}`);
 }
 
 //Function to keep track of the score within rounds of play.
 function scoreCounter(playerScore, computerScore) {
-  let userScore = 0,
-    pcScore = 0;
   if (playerScore == "tie" && computerScore == "tie") {
     userScore += 0;
     pcScore += 0;
@@ -34,7 +35,6 @@ function scoreCounter(playerScore, computerScore) {
     showScore(userScore, pcScore);
     (userScore = 0), (pcScore = 0);
   }
-  console.log(`userScor = ${userScore} pcScore = ${pcScore}`);
 }
 
 //Function that can play one round of rock paper scissors.
@@ -73,3 +73,8 @@ function game() {
   }
   scoreCounter("reset", "reset");
 }
+
+let userScore = 0,
+  pcScore = 0;
+
+game();
